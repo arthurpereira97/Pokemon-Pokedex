@@ -6,6 +6,7 @@ Para a execução do projeto, basta clonar o repositório e importar o projeto n
 
 # Especificações
 Para a execução do projeto, é necessário possuir os seguintes requisitos:
+
    -Android Studio Arctic Fox | 2020.3.1 Patch 3
 
 #  Features
