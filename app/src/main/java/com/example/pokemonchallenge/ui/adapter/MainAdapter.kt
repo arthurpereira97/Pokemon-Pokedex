@@ -45,7 +45,6 @@ class MainAdapter(
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val name: TextView = itemView.findViewById(R.id.pokemonName)
         val image: ImageView = itemView.findViewById(R.id.pokemonImage)
-
     }
 
 }

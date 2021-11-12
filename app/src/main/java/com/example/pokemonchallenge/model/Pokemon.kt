@@ -8,5 +8,5 @@ data class Pokemon(
         @SerializedName("name")
         var name : String,
         @SerializedName("url")
-        var url : String,
+        var url : String
 ): Parcelable

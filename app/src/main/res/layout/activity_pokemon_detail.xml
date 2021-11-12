@@ -10,8 +10,11 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fullScreen"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
+
 
         <LinearLayout
             android:id="@+id/pokemonImages"
@@ -61,46 +64,57 @@
 
         </LinearLayout>
 
-
         <TextView
-            android:id="@+id/type"
+            android:id="@+id/pokemonName"
             android:layout_width="match_parent"
-            android:layout_height="18dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintStart_toStartOf="@+id/pokemonImages"
             app:layout_constraintTop_toBottomOf="@+id/pokemonImages"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
 
         <TextView
-            android:id="@+id/pokemonName"
-            android:layout_width="match_parent"
+            android:id="@+id/lbltype"
+            android:layout_width="wrap_content"
             android:layout_height="18dp"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintStart_toStartOf="@+id/pokemonImages"
-            app:layout_constraintTop_toBottomOf="@+id/type"
-            android:gravity="center"/>
+            app:layout_constraintStart_toStartOf="@+id/pokemonName"
+            app:layout_constraintTop_toBottomOf="@+id/pokemonName"
+            android:text="Tipo: "
+            />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toEndOf="@+id/lbltype"
+            app:layout_constraintTop_toBottomOf="@+id/pokemonName" />
+
         <TextView
             android:id="@+id/lblheight"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginTop="7dp"
             android:layout_marginRight="10dp"
-            app:layout_constraintStart_toStartOf="@+id/pokemonName"
-            app:layout_constraintTop_toBottomOf="@+id/pokemonName"
+            app:layout_constraintStart_toStartOf="@+id/lbltype"
+            app:layout_constraintTop_toBottomOf="@+id/type"
+            android:gravity="center"
             android:text="Altura: "/>
 
         <TextView
             android:id="@+id/height"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginTop="7dp"
             android:layout_marginLeft="10dp"
             app:layout_constraintStart_toEndOf="@+id/lblheight"
-            app:layout_constraintTop_toBottomOf="@+id/pokemonName" />
+            app:layout_constraintTop_toTopOf="@+id/lblheight" />
 
         <TextView
             android:id="@+id/lblweight"
@@ -108,7 +122,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="7dp"
             android:layout_marginRight="10dp"
-            app:layout_constraintStart_toStartOf="@+id/pokemonName"
+            app:layout_constraintStart_toStartOf="@+id/lblheight"
             app:layout_constraintTop_toBottomOf="@+id/lblheight"
             android:text="Peso: "/>
 

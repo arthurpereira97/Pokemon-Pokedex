@@ -30,6 +30,25 @@ class MainActivity : AppCompatActivity() {
 
         val busyDialog = BusyDialogFragment.show(supportFragmentManager)
 
+        searchPokemonListener()
+
+        updateListViewModel(busyDialog)
+    }
+
+    private fun updateListViewModel(busyDialog: BusyDialogFragment) {
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        viewModel.pokemonResponseLiveData.observe(this, Observer
+        { pokemonResponse ->
+            pokemonResponse.let {
+                binding.pokemonRecyclerView.adapter =
+                    MainAdapter(pokemonResponse, this, this@MainActivity::openPokemonDetail)
+                busyDialog.dismiss()
+            }
+        })
+        viewModel.searchPokemons()
+    }
+
+    private fun searchPokemonListener() {
         binding.searchPokemon.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextChange(newText: String): Boolean {
@@ -42,14 +61,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
-        viewModel.pokemonResponseLiveData.observe(this, Observer
-            { pokemonResponse ->
-                binding.pokemonRecyclerView.adapter = MainAdapter(pokemonResponse, this, this@MainActivity::openPokemonDetail)
-                busyDialog.dismiss()
-            })
-        viewModel.searchPokemons()
     }
 
     private fun openPokemonDetail(pokemon: String) {
